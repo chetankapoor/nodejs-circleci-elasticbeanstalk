@@ -1,0 +1,22 @@
+{
+  "name": "sample-nodejs-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chetankapoor/sample-nodejs-app.git"
+  },
+  "author": "Chetan Kapoor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chetankapoor/sample-nodejs-app/issues"
+  },
+  "homepage": "https://github.com/chetankapoor/sample-nodejs-app#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
