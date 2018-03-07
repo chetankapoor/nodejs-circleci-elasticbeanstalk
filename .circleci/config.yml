@@ -28,7 +28,7 @@ jobs:
                 command: |
                    if [[ $(echo "$CIRCLE_BRANCH" == "master") -eq 1 ]]; then
                    sh run-master.sh ; elif [[ $(echo "$CIRCLE_BRANCH" | grep -c "release/*") -eq 1 ]]; then
-                   run-release.sh; else [[ $(echo "$CIRCLE_BRANCH" | grep -c "release/*") -eq 1 ]]; fi
+                   sh run-release.sh; else [[ $(echo "$CIRCLE_BRANCH" | grep -c "release/*") -eq 1 ]]; fi
 workflows:
   version: 2
   build-deploy:
