@@ -6,8 +6,9 @@ jobs:
         steps:
             - checkout
             - run:
-                name: install-dependencies
-                command: npm install
+               name: Install awscli
+               command: |
+                  sudo pip install awsebcli --upgrade
 
             - run:
                 name: Create AWS credentials manually
