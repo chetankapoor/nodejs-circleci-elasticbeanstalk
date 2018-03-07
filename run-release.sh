@@ -1,2 +1,2 @@
 #!/bin/bash
-eb use test-ck --profile lumen --region us-east-2 && eb deploy -v --staged --profile lumen --region us-east-2
+eb use sample-nodejs-app-dev --profile eb-cli --region us-east-2 && eb deploy -v --staged --profile eb-cli --region us-east-2

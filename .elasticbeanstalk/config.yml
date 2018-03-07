@@ -1,21 +1,18 @@
 branch-defaults:
   master:
-    environment: test-ck
-deploy:
-  artifact: app.zip
-environment-defaults:
-  test-ck:
-    branch: null
-    repository: null
+    environment: sample-nodejs-app2-dev
+    group_suffix: null
 global:
-  application_name: test-ck
-  default_ec2_keyname: docker-test
-  default_platform: Multi-container Docker running on 64bit Amazon Linux
+  application_name: sample-nodejs-app2
+  branch: null
+  default_ec2_keyname: aws-eb
+  default_platform: Node.js
   default_region: us-east-2
   include_git_submodules: true
   instance_profile: null
   platform_name: null
   platform_version: null
-  profile: lumen
+  profile: eb-cli
+  repository: null
   sc: git
   workspace_type: Application
