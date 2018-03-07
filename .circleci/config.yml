@@ -1,0 +1,50 @@
+version: 2
+general:
+  branches:
+    only:
+      - master # list of branches to build
+      - /release\/.*/ # or regexes
+      - development
+
+jobs:
+    build:
+        docker:
+            - image: circleci/node:7
+        steps:
+            - checkout
+            - run:
+                name: install-dependencies
+                command: npm install
+
+            - run:
+                name: Create AWS credentials manually
+                command: |
+                  mkdir ~/.aws
+                  touch ~/.aws/config
+                  chmod 600 ~/.aws/config
+                  echo "[profile eb-cli]" > ~/.aws/config
+                  echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> ~/.aws/config
+                  echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
+
+            - run: 
+                name: Create a Zip file 
+                command: |
+                  zip -r app.zip *
+            - run: 
+                name: Deploy Master branch
+                command: |
+                   if [[ $(echo "$CIRCLE_BRANCH" == "master") -eq 1 ]]; then
+                   sh run-master.sh ; elif [[ $(echo "$CIRCLE_BRANCH" | grep -c "release/*") -eq 1 ]]; then
+                   run-release.sh; else [[ $(echo "$CIRCLE_BRANCH" | grep -c "release/*") -eq 1 ]]; fi
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: 
+                - master
+                - develop
+                - docker 
