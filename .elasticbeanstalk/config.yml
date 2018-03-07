@@ -1,6 +1,8 @@
 branch-defaults:
   master:
     environment: test-ck
+deploy:
+  artifact: app.zip
 environment-defaults:
   test-ck:
     branch: null
