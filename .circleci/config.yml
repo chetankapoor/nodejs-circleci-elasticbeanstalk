@@ -24,6 +24,7 @@ jobs:
                 name: Create a Zip file 
                 command: |
                   zip -r app.zip *
+                  echo $CIRCLE_BRANCH
             - run: 
                 name: Deploy Master branch
                 command: |
