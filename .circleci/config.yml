@@ -28,7 +28,7 @@ jobs:
             - run: 
                 name: Deploy Master branch
                 command: |
-                   if [[ $(echo "$CIRCLE_BRANCH" | grep -c "release/*") -eq 1 ]]; then
+                   if [[ $(echo "$CIRCLE_BRANCH" | grep -c "master/*") -eq 1 ]]; then
                    sh run-master.sh ; elif [[ $(echo "$CIRCLE_BRANCH" | grep -c "release/*") -eq 1 ]]; then
                    sh run-release.sh ; else echo $CIRCLE_BRANCH; fi
 workflows:
