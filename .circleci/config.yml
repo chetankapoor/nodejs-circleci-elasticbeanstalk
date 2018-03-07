@@ -1,11 +1,4 @@
 version: 2
-general:
-  branches:
-    only:
-      - master # list of branches to build
-      - /release\/.*/ # or regexes
-      - development
-
 jobs:
     build:
         docker:
